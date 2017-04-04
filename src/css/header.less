@@ -1,0 +1,43 @@
+@chartset "UTF-8";
+@import './common.less';
+
+header{
+    height: 60px;
+    line-height: 60px;
+    background-color: #14191e;
+    overflow: hidden;
+    .base-flex-container(@justify-content:center);
+    border:1px solid red; 
+}
+
+
+.nav-main ul li,.head-left ul li{
+    display: inline;
+    list-style: none;
+    padding: 0 10px;
+    a{
+       color: #ffffff; 
+    }
+}
+
+.nav-main {
+    .base-flex-item-row(@order:1,@flex:1 1 auto,@align-self:auto);
+}
+
+.nav-main ul{
+    text-align: center;
+}
+
+.head-right{
+    display: flex;
+    order: 2;
+    flex-basis: 200px;
+}
+
+.logo{
+    display: inline-flex;
+    width: 200px;
+    background: url(../images/logo.png) no-repeat right center;
+}
+
+

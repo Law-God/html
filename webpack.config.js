@@ -8,6 +8,15 @@ var path = require("path");
 *	压缩html代码
 */
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+/*
+*	提取css为单独文件
+*	plugin配置new ExtractTextPlugin("[name].css") 默认为package.json中main名称
+*/
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+// css自动加入前缀
+var precss = require("precss");
+var autoprefixer = require("autoprefixer");
 
 module.exports={
 	entry : "./src/html/index.js",
@@ -19,9 +28,15 @@ module.exports={
 	},
 	module : {
 		loaders : [
+			/*样式加载*/
 			{
 				test: /\.(css|less)$/, 
-				loader: 'style-loader!css-loader!less-loader'
+				//loader: 'style-loader!css-loader!postcss-loader!less-loader'
+				//webpack 2以后规则
+				loader : ExtractTextPlugin.extract({
+					fallback : "style-loader",
+					use : ["css-loader","postcss-loader","less-loader"]
+				})
 			},
 			/*图片加载*/
 			{
@@ -38,6 +53,14 @@ module.exports={
 		]
 	},
 	plugins : [
+		new ExtractTextPlugin("bundle.css"),
+		new webpack.LoaderOptionsPlugin({
+			options : {
+				postcss : function(){
+					return [precss,autoprefixer];
+				}
+			}
+		}),
 		new HtmlWebpackPlugin({
 			filename : "index.html",
 			chunk : ["bundle"],

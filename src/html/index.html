@@ -1,9 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
 		<title>首页</title>
 	</head>
 	<body>
-		<img src="../images/yxc.jpg"/>
+		<div id="app">
+			<!-- === 开始页面级页眉 === -->
+			<header role="banner">
+				<!-- 站点标识可以放在这里 -->
+				<a href="/" class="logo"></a>
+				<!-- 全站导航 -->
+				<nav role="navigation" class="nav-main">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">剧集</a></li>
+						<li><a href="#">角色</a></li>
+					</ul>
+				</nav>
+				<nav class="head-right">
+					<ul>
+						<li><a href="#">登陆</a></li>
+						<li><a href="#">注册</a></li>
+					</ul>
+				</nav>
+			</header>
+			<!-- === 开始主要内容 === -->
+			<main role="main">
+				<h1>Hello World</h1>
+				<section>
+					<h2>News</h2>
+					
+				</section>
+				<section>
+					<h2>Business</h2>
+				</section>
+			</main>
+			
+			<!-- === 开始附注栏  === -->
+			<!--
+			<aside role="complementary">
+				<!-- 次级导航 
+				<nav role="navigation">
+					<ul>
+						<li><a href="#">Movies</a></li>
+						<li><a href="#">Music</a></li>
+					</ul>
+				</nav>
+			</aside>-->
+			
+			<!-- === 开始页面级页脚 === -->
+			<footer role="contentinfo">
+				<!-- 辅助性链接并未包在nav -->
+				页脚
+			</footer>
+		</div>
 	</body>
 </html>

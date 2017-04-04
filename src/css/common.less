@@ -1,4 +1,140 @@
+@chartset "UTF-8";
+
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}
+
+fieldset,img{border:0;}
+abbr,acronym{border:0;font-variant:normal}
+
+ol,ul{list-style:none}
+
+sup,sub{font-size:100%;vertical-aglign:baseline;}
+
+blockquote,q{quotes:none}
+
+/*blockquote:before,blockquote:after,q:before,q:after{content:"",content:none}*/
+
+table{border-collapse:collapse;border-spacing:0}
+
+caption,th{text-align:left}
+
+a{text-decoration:none}
+a:link,a:visited{text-decoration:none}
+a:hover {color:#14191e;}
+
 body{
-    background-color: #ddffee;
-    background-image: url(../images/logo.png);
+    font : 16px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+}
+
+/*flex布局*/
+/*容器*/
+.base-flex-container(@display:flex,@flex-flow:row nowrap,@justify-content:flex-start,@align-items:stretch,@align-content:stretch){
+    display: @display;
+    flex-flow: @flex-flow;
+    justify-content : @justify-content;
+    align-items : @align-items;
+    align-content : @align-content;
+}
+/*项目*/
+.base-flex-item-row(@order:0,@flex:1 1 auto,@align-self:auto){
+    order: @order;
+    flex: @flex;
+    align-self: @align-self;
+}
+
+.flex-container{
+    .base-flex-container();
+}
+
+/*页面垂直布局*/
+html,body{
+    height:100%;
+}
+#app{
+    height: 100%;
+    .base-flex-container(@flex-flow:column nowrap,@justify-content:space-between);
+}
+
+main,footer{
+   .base-flex-container();
+   border:1px solid red; 
+}
+
+
+/*清除浮动   在需要清除浮动父容器添加样式即可*/
+.clearfix{
+    display: block;
+}
+.clearfix:after{
+    content:".";
+    display: block;
+    height:0;
+    clear: both;
+   
+}
+
+/*color*/
+/*aqua 水绿*/
+.c-aqua{
+	color : #00ffff;
+}
+/*black 黑*/
+.c-black{
+	color :#000000;
+}
+/*blue 蓝*/
+.c-blue{
+	color : #0000ff;
+}
+/*fuchsia 紫红*/
+.c-fuchsia{
+	color : #ff00ff;
+}
+/*gray 灰*/
+.c-gray{
+	color : #808080;
+}
+/*green 绿*/
+.c-green{
+	color : #008000;
+}
+/*lime浅绿*/
+.c-lime{
+	color : #00ff00;
+}
+/*maroon 褐*/
+.c-maroon{
+	color : #800000;
+}
+/*navy 深蓝*/
+.c-navy{
+	color : #000080;
+}
+/*olive 橄榄*/
+.c-olive{
+	color : #808000
+}
+/*purple 紫*/
+.c-purple{
+	color : #800080;
+}
+/*red 红*/
+.c-red{
+	color : #ff0000;
+}
+/*silver 银*/
+.c-silver{
+	color : #c0c0c0;
+}
+/*teal 深青*/
+.c-teal{
+	color : #008080;
+}
+/*white 白*/
+.c-white{
+	color : #ffffff;
+}
+/*yellow 黄*/
+.c-yellow{
+	color : #ffff00
 }
